@@ -7,9 +7,12 @@ class Scene:
     def __init__(self, app):
         self.app = app
 
+        player_texture = pygame.image.load('res/Placeholder.png').convert_alpha()
+        player_texture = pygame.transform.scale(player_texture, TILESIZE, TILESIZE)
+
         self.sprites = pygame.sprite.Group()
         self.entity = Entity([self.sprites])
-        Entity([self.sprites], position=(100,100))
+        Entity([self.sprites], position=(100,100), image = player_texture)
         Entity([self.sprites], position=(200,200))
 
         self.player = Player((self.sprites))
