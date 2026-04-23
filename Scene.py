@@ -29,7 +29,7 @@ class Scene:
         atlas_img = pygame.transform.scale(pygame.image.load(filepath).convert_alpha(), (TILESIZE*16, TILESIZE*16))
 
         for name, data in atlas_texture_data.items():
-            textures[name] = pygame.Surface.subsurface(atlas_img, pygame.Rect(data['position'], data['size']))
+            textures[name] = pygame.Surface.subsurface(atlas_img, pygame.Rect(data['position'][0]*TILESIZE, data['position'][1]*TILESIZE, data['size'][0], data['size'][1]))
 
         return textures
     def gen_world(self):
